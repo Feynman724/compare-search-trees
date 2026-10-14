@@ -106,43 +106,18 @@ nav button{padding:6px 13px;min-width:48px;min-height:42px;font-size:17px;border
 #slide6 .bars small{display:block;margin-top:19px;font-size:15px}
 #slide6 .statement{margin-top:22px}
 
-/* 07 — BST path demonstration and formula. */
-#slide7 .demoLabel{display:inline-block;padding:7px 15px;margin:0 0 10px;border:1px solid #d6e7f3;border-radius:99px;background:#eaf4fb;color:#2b698f;font-size:15px;font-weight:700}
-#slide7 #bstDemo{background:white;border:1px solid #e5ebf0;border-radius:18px;padding:12px 20px 8px;box-shadow:var(--shadow)}
-#slide7 .tree{height:275px}
-#slide7 #bstDemo .metric{justify-content:space-between}
-#slide7 .card{min-height:410px;border-top:5px solid #0877d6}
-#slide7 .card h3{color:#315b7a}
-#slide7 .card .big{font-size:60px}
-#slide7 .controls{margin-top:18px}
-#slide7 .controls [data-action="play"]{background:#243b50;color:white;font-weight:700}
-
-/* 08–09 — Detailed synchronized algorithms. */
-#slide8.detailed,#slide9.detailed{padding-top:39px}
-.detailed h2{color:var(--ink);font-size:37px;letter-spacing:-.025em;max-width:1180px;margin:13px 0 13px}
-.detailed .traceIntro{color:#607789}
-.detailed .tracePanel{box-shadow:var(--shadow)}
-.detailed .traceExplanation{border-top:1px solid #e3ebf0;padding-top:9px}
-.detailed .traceLesson{font-size:17px;color:#31495a}
-.detailed .traceTheory{font-size:17px}
-.detailed .traceDefinitions{color:#607789}
-#slide9 .traceTabs button{font-size:16px;font-weight:700;padding:7px 19px}
-#slide9 .traceTabs button.selected{background:#0f698e;color:white;border-color:#0f698e}
-#slide8 .slideFooter,#slide9 .slideFooter{bottom:20px}
-
-/* 10 — Three takeaways and an honest boundary. */
-#slide10::before{background:radial-gradient(circle at 83% 23%,rgba(28,125,194,.09),transparent 33%),#f7f9fb}
-#slide10 .three{background:transparent;gap:18px;padding:0}
-#slide10 .card{border-radius:18px;border:1px solid #e1e8ed;padding:24px 25px;min-height:178px}
-#slide10 .card h3{font-size:23px;margin:1px 0 12px;color:#285675}
-#slide10 .card p{font-size:21px;line-height:1.42;margin:0}
-#slide10 .card:nth-child(1){border-top:5px solid #c95652}
-#slide10 .card:nth-child(2){border-top:5px solid #168e82}
-#slide10 .card:nth-child(3){border-top:5px solid #347ed1}
-#slide10>.three+p{margin-top:27px;font-size:22px;line-height:1.5}
-#slide10 .rule{margin:24px 0 18px}
-#slide10>.note{font-size:17px;line-height:1.5}
-#slide10 .statement{margin-top:21px;font-size:32px}
+#slide9::before{background:radial-gradient(circle at 83% 23%,rgba(28,125,194,.09),transparent 33%),#f7f9fb}
+#slide9 .three{background:transparent;gap:18px;padding:0}
+#slide9 .card{border-radius:18px;border:1px solid #e1e8ed;padding:24px 25px;min-height:178px}
+#slide9 .card h3{font-size:23px;margin:1px 0 12px;color:#285675}
+#slide9 .card p{font-size:21px;line-height:1.42;margin:0}
+#slide9 .card:nth-child(1){border-top:5px solid #c95652}
+#slide9 .card:nth-child(2){border-top:5px solid #168e82}
+#slide9 .card:nth-child(3){border-top:5px solid #347ed1}
+#slide9>.three+p{margin-top:27px;font-size:22px;line-height:1.5}
+#slide9 .rule{margin:24px 0 18px}
+#slide9>.note{font-size:17px;line-height:1.5}
+#slide9 .statement{margin-top:21px;font-size:32px}
 
 @media print{body{background:white}#deck{box-shadow:none}nav,#progress{display:none!important}.slideFooter{bottom:28px}}
 @media(prefers-reduced-motion:reduce){section::before{animation:none!important}}
