@@ -43,9 +43,12 @@
 .labNode.labVisited circle,.labNode.labVisited rect{fill:color-mix(in srgb,var(--tree-color) 20%,white);stroke-width:3}
 .labNode.labCurrent circle,.labNode.labCurrent rect{fill:var(--tree-color);stroke-width:3.5}
 .labNode.labCurrent text{fill:white}
-.labNode.labRed circle{fill:#d96c65;stroke:#b9423a}
+.labNode.labBlack circle{fill:#243746;stroke:#152735}
+.labNode.labBlack text{fill:white}
+.labNode.labRed circle{fill:#c95652;stroke:#9e3d39}
 .labNode.labRed text{fill:white}
-.labNode.labRed.labCurrent circle{fill:#b9423a}
+.labNode.labBlack.labVisited circle,.labNode.labRed.labVisited circle{stroke:#edb553;stroke-width:3.5}
+.labNode.labBlack.labCurrent circle,.labNode.labRed.labCurrent circle{stroke:#edb553;stroke-width:4}
 .labNode.labNew circle,.labNode.labNew rect,.labNode.labNew text{animation:lab-pop .4s cubic-bezier(.32,.72,0,1) both}
 .labNode.labLeaf rect{fill:#fffaf0}
 .labNode.labLeaf.labVisited rect{fill:#f6e8c8}

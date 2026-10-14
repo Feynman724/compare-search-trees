@@ -31,7 +31,7 @@
   }
   for(const item of items){const id=String(item.id);validNodes.add(id);let group=nodeLayer.querySelector(`[data-node="${id}"]`),fresh=!group;
    if(!group){group=svgEl('g',{'data-node':id});if(kind==='binary')group.append(svgEl('circle',{r:item.radius}),svgEl('text'));else group.append(svgEl('rect',{x:0,y:-15,rx:6,ry:6,height:30}));nodeLayer.append(group);}
-   group.setAttribute('class',`labNode ${fresh?'labNew':''} ${item.visited?'labVisited':''} ${item.current?'labCurrent':''} ${item.red?'labRed':''} ${item.leaf?'labLeaf':''}`);
+   group.setAttribute('class',`labNode ${fresh?'labNew':''} ${item.visited?'labVisited':''} ${item.current?'labCurrent':''} ${item.red?'labRed':''} ${item.black?'labBlack':''} ${item.leaf?'labLeaf':''}`);
    group.style.transform=`translate(${item.x}px,${item.y}px)`;
    if(kind==='binary'){group.firstChild.setAttribute('r',item.radius);group.lastChild.textContent=item.label;}
    else{
@@ -54,7 +54,8 @@
   const nodes=[];function walk(n,depth){if(!n)return;walk(n.l,depth+1);nodes.push({n,depth});walk(n.r,depth+1);}walk(view.root,0);
   const maxDepth=Math.max(1,...nodes.map(x=>x.depth)),gap=Math.min(big?36:28,(height-55)/maxDepth),positions=new Map();
   nodes.forEach(({n,depth},index)=>positions.set(n.k,{x:margin+(index+1)*(width-2*margin)/(nodes.length+1),y:29+depth*gap}));
-  const items=nodes.map(({n})=>({id:n.k,label:n.k,x:positions.get(n.k).x,y:positions.get(n.k).y,radius,visited:search&&path.includes(n.k),current:search&&path.at(-1)===n.k||!search&&n.k===key,red:!!n.red}));
+  const redBlack=Number.isInteger(view.colorFlips);
+  const items=nodes.map(({n})=>({id:n.k,label:n.k,x:positions.get(n.k).x,y:positions.get(n.k).y,radius,visited:search&&path.includes(n.k),current:search&&path.at(-1)===n.k||!search&&n.k===key,red:redBlack&&!!n.red,black:redBlack&&!n.red}));
   const edges=[];for(const {n} of nodes)for(const child of [n.l,n.r])if(child){const a=positions.get(n.k),b=positions.get(child.k);edges.push({a:n.k,b:child.k,...{x1:a.x,y1:a.y,x2:b.x,y2:b.y},visited:search&&path.includes(n.k)&&path.includes(child.k)});}
   syncSvg(svg,items,edges,'binary');
  }
