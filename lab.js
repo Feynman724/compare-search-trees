@@ -30,14 +30,14 @@
    line.setAttribute('class',edge.type==='leaf'?'labLeafLink':edge.visited?'labVisitedEdge':'');
   }
   for(const item of items){const id=String(item.id);validNodes.add(id);let group=nodeLayer.querySelector(`[data-node="${id}"]`),fresh=!group;
-   if(!group){group=svgEl('g',{'data-node':id});if(kind==='binary')group.append(svgEl('circle',{r:item.radius}),svgEl('text'));else group.append(svgEl('rect',{rx:6,ry:6,height:30}));nodeLayer.append(group);}
+   if(!group){group=svgEl('g',{'data-node':id});if(kind==='binary')group.append(svgEl('circle',{r:item.radius}),svgEl('text'));else group.append(svgEl('rect',{x:0,y:-15,rx:6,ry:6,height:30}));nodeLayer.append(group);}
    group.setAttribute('class',`labNode ${fresh?'labNew':''} ${item.visited?'labVisited':''} ${item.current?'labCurrent':''} ${item.red?'labRed':''} ${item.leaf?'labLeaf':''}`);
    group.style.transform=`translate(${item.x}px,${item.y}px)`;
    if(kind==='binary'){group.firstChild.setAttribute('r',item.radius);group.lastChild.textContent=item.label;}
    else{
     const width=item.width,slot=item.slotWidth,left=-width/2;
     group.setAttribute('data-keys',item.keys.join(','));
-    group.firstChild.setAttribute('x',left);group.firstChild.setAttribute('width',width);
+    group.firstChild.setAttribute('x',left);group.firstChild.setAttribute('y',-15);group.firstChild.setAttribute('width',width);
     for(const child of [...group.children].slice(1))child.remove();
     item.keys.forEach((key,index)=>{
      if(index)group.append(svgEl('line',{class:'labCellDivider',x1:left+item.padding+index*slot,y1:-10,x2:left+item.padding+index*slot,y2:10}));
