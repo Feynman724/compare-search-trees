@@ -272,8 +272,19 @@ section h2{margin-top:22px;margin-bottom:28px}
 #slide10 .complexityTable td strong{font-size:24px;margin-bottom:4px}
 #slide10 .complexityTable td span{font-size:18px;line-height:1.4}
 
-/* Plot logged coordinates explicitly; tick labels are the logarithms themselves. */
+/* Values use log-spaced coordinates; labels show the actual input and milliseconds. */
 .chart .chartGrid{stroke:#dde3e8;stroke-width:1}
 .chart .chartAxis{fill:none;stroke:#49667c;stroke-width:1.8;stroke-linejoin:round}
 .chart text{font-size:17px}
 .chart .chartAxisTitle{font-size:21px;font-weight:650;fill:#285675}
+.chartTop{display:flex;align-items:flex-start;justify-content:space-between;gap:22px;margin-bottom:12px}
+.chartTop .chartContext{flex:1;margin:0;font-size:18px;line-height:1.45}
+.chartTop .chartContext strong{color:#0a70bb}
+.chartSourceWrap{flex:none;min-width:278px;text-align:right}
+.chartSource{display:inline-flex;gap:4px;padding:4px;border:1px solid #d8e5ed;border-radius:12px;background:#edf3f7}
+.chartSource button{padding:7px 13px;border:0;border-radius:8px;background:transparent;color:#476177;font-size:17px;font-weight:750}
+.chartSource button.selected{background:#173e5c;color:white;box-shadow:0 2px 6px rgba(20,55,77,.16)}
+.benchmarkSourceLabel{display:block;margin-top:4px;font-size:14px;color:#657b8b;white-space:nowrap}
+#slide7 .bars #sampleBars{display:block;margin:0}
+#slide7 .bars #sampleBars>div{display:grid;grid-template-columns:123px 1fr 71px;gap:10px;align-items:center;margin:14px 0;font-size:18px}
+#slide7 .bars #sampleBars>div>span:first-child{font-weight:700;color:#28445b}
