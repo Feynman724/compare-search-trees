@@ -35,7 +35,7 @@ heading('标准时间复杂度')+`<table><tr><th>结构</th><th>维护方式</th
 heading('实验设计')+`<div class="grid two">${card('五种树收到完全相同的输入','<ol class="experimentSteps"><li><b>准备同一组键</b><span>使用 0 到 N−1；每次试验五种树共用同一排列。</span></li><li><b>先插入，再删除</b><span>从空树开始，最后回到空树；分别记录两段时间。</span></li><li><b>重复三次</b><span>将插入与删除时间相加，取三次总时间的中位数。</span></li></ol>')}${card('原报告的计时配置','<dl class="experimentConfig"><div><dt>输入规模</dt><dd>1k、2k、5k、10k、20k、50k、100k</dd></div><div><dt>实现与编译</dt><dd>使用 C 实现，GCC 13.3.0 以 -O2 编译。</dd></div><div><dt>运行环境</dt><dd>WSL2 / Linux，Ryzen 7 H 255；未绑定 CPU。</dd></div><div><dt>计时方式</dt><dd>使用 CLOCK_MONOTONIC，单进程顺序运行；B+ 节点容量为 32。</dd></div></dl>')}</div>`,
 heading('操作演示')+`<div id="labTrees"></div>`,
 heading('有序操作结果')+`<div class="chartTop"><p class="chartContext">横轴为键数 N，纵轴为总时间（毫秒）；两轴按对数刻度。<strong>纵轴每条横线相差 10 倍。</strong></p>${sourcePicker()}</div><div class="legend" id="legend5"></div><div class="grid two orderedCharts"><div><h3>从小到大插入，再从小到大删除</h3><div id="chart0"></div></div><div><h3>从小到大插入，再从大到小删除</h3><div id="chart1"></div></div></div><div class="grid two orderedStats"><div><span class="big blue" id="orderedRatio0"></span><p id="orderedDetail0"></p></div><div><span class="big blue" id="orderedRatio1"></span><p id="orderedDetail1"></p></div></div>`,
-heading('随机操作结果')+`<div class="chartTop"><p class="chartContext">插入和删除独立洗牌；左图两轴按对数刻度，<strong>纵轴每条横线相差 10 倍。</strong>右图为十万键时的毫秒数。</p>${sourcePicker()}</div><div class="legend" id="legend6"></div><div class="grid two"><div id="chart2"></div><div class="bars"><div id="sampleBars"></div><p id="randomSourceSummary"></p></div></div><p class="randomSummary">两轮随机测试的十万键排序相同，但领先幅度不同：趋势可以复现，细小差距不可泛化。</p><div class="bplusAnalysis"><p><strong>B+ 的优势可能来自更矮的树和更集中的存储。</strong>有效分支数为 b 时，树高约为 O(log<sub>b</sub> N)。</p><p>节点内查找、分裂与合并也有成本。两组测量里 B+ 都快于 BST，但领先幅度不同；每组仅重复三次，不能据此断言 B+ 普遍最快。</p></div>`,
+heading('随机操作结果')+`<div class="chartTop"><p class="chartContext">左图：<strong>每个规模的最快树 = 1×</strong>，越高表示耗时越多；横轴按对数刻度。右图为十万键时的实际毫秒数。</p>${sourcePicker()}</div><div class="legend" id="legend6"></div><div class="grid two"><div id="chart2"></div><div class="bars"><div id="sampleBars"></div><p id="randomSourceSummary"></p></div></div><p class="randomSummary">两轮随机测试的十万键排序相同，但领先幅度不同：趋势可以复现，细小差距不可泛化。</p><div class="bplusAnalysis"><p><strong>B+ 的优势可能来自更矮的树和更集中的存储。</strong>有效分支数为 b 时，树高约为 O(log<sub>b</sub> N)。</p><p>节点内查找、分裂与合并也有成本。两组测量里 B+ 都快于 BST，但领先幅度不同；每组仅重复三次，不能据此断言 B+ 普遍最快。</p></div>`,
 heading('突出问题')+`<p class="intro">随机插入和删除时，五种树的耗时处于同一数量级。<br>但在有序操作中，BST 的耗时格外高，Splay 的耗时格外低。</p><div class="grid two questionGrid">${card('为什么有序操作让 BST 这么慢？','')}${card('为什么 Splay 在有序操作中这么快？','')}</div>`,
 heading('结构对照')+`<div id="labInsight"></div>`,
 heading('复杂度对照')+complexityTable()+`<div class="balancedComparison"><strong>AVL、红黑树、B+ 树：三种序列均为 O(N log N)</strong><p>单次插入、删除的最坏成本为 O(log N)，共执行 2N 次操作；B+ 按固定节点容量讨论。</p></div>`,
@@ -58,7 +58,31 @@ function renderBenchmarkSummary(){
  $('#randomSourceSummary').textContent=`十万键：B+ ${values[4].toFixed(3)} ms，BST ${values[0].toFixed(3)} ms；BST 比 B+ 慢约 ${lead.toFixed(benchmarkSource==='report'?2:1)}%。`;
 }
 document.addEventListener('click',event=>{const button=event.target.closest('[data-source]');if(!button)return;benchmarkSource=button.dataset.source;charts();renderBenchmarkSummary();});
+function randomRelativeChart(id){
+ const rows=activeData()[2],left=130,right=650,bottom=300,top=34;
+ const x=n=>left+(Math.log10(n)-3)*(right-left)/2;
+ const y=ratio=>bottom-(ratio-1)*(bottom-top)/2;
+ const best=sizes.map((_,j)=>Math.min(...rows.map(row=>row[j])));
+ let out='<svg class="chart" viewBox="0 0 700 380" role="img" aria-label="随机实验：每个输入规模下，最快树为一倍，纵轴显示其他树相对最快树的耗时倍数">';
+ for(const ratio of [1,1.5,2,2.5,3]){
+  const yy=y(ratio);
+  out+=`<line x1="${left}" y1="${yy}" x2="${right}" y2="${yy}" class="chartGrid"/><line x1="${left-6}" y1="${yy}" x2="${left}" y2="${yy}" class="chartAxis"/><text x="${left-13}" y="${yy+5}" text-anchor="end">${ratio.toFixed(1)}×</text>`;
+ }
+ for(const n of [1000,10000,100000]){
+  const xx=x(n);
+  out+=`<line x1="${xx}" y1="${bottom}" x2="${xx}" y2="${bottom+6}" class="chartAxis"/><text x="${xx}" y="${bottom+28}" text-anchor="middle">${n.toLocaleString('en-US')}</text>`;
+ }
+ out+=`<path d="M ${left} ${top-8} V ${bottom} H ${right+8}" class="chartAxis"/><path d="M ${left-4} ${top-3} L ${left} ${top-9} L ${left+4} ${top-3} M ${right+3} ${bottom-4} L ${right+9} ${bottom} L ${right+3} ${bottom+4}" class="chartAxis"/>`;
+ out+=`<text class="chartAxisTitle" x="${(left+right)/2}" y="365" text-anchor="middle">键数 N · 对数刻度</text><text class="chartAxisTitle" transform="translate(25 ${(top+bottom)/2}) rotate(-90)" text-anchor="middle">相对同规模最快树的耗时</text>`;
+ rows.forEach((row,i)=>{
+  if(hidden.has(i))return;
+  out+=`<polyline class="curve" fill="none" stroke="${colors[i]}" stroke-width="3" points="${row.map((value,j)=>`${x(sizes[j])},${y(value/best[j])}`).join(' ')}"/>`;
+  row.forEach((value,j)=>out+=`<circle cx="${x(sizes[j])}" cy="${y(value/best[j])}" r="5" fill="${colors[i]}"><title>${names[i]} · N=${sizes[j]} · ${value.toFixed(3)} ms · 相对最快 ${(value/best[j]).toFixed(2)}×</title></circle>`);
+ });
+ $(id).innerHTML=out+'</svg>';
+}
 function chart(id,index){
+ if(index===2){randomRelativeChart(id);return;}
  const rows=activeData()[index],left=130,right=650,bottom=300,top=34;
  const x=n=>left+(Math.log10(n)-3)*(right-left)/2;
  const y=v=>bottom-(Math.log10(v)+2)*38;
