@@ -54,21 +54,21 @@ nav button{padding:6px 13px;min-width:48px;min-height:42px;font-size:17px;border
 #slide2 .statement{margin-top:31px}
 
 /* 03 — Theory table: separate worst-case guarantees from measurements. */
-#slide5 table{margin-top:8px;table-layout:fixed;background:white;border:1px solid #e4ebf0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);font-size:20px}
-#slide5 th{background:#eaf1f6;color:#3d5c73;font-size:17px;letter-spacing:.045em;text-transform:uppercase}
-#slide5 th,#slide5 td{padding:12px 21px;border-color:#e9eef2}
-#slide5 td:first-child{font-weight:760}
-#slide5 tr:last-child td{border-bottom:0}
-#slide5 tr:nth-child(2){background:#fff8f7}
-#slide5 tr:nth-child(4){background:#f1f9f7}
-#slide5 th:nth-child(1){width:17%}#slide5 th:nth-child(2){width:35%}#slide5 th:nth-child(3){width:20%}#slide5 th:nth-child(4){width:28%}
-#slide5 .note{margin-top:17px;font-size:17px}
-#slide5 .statement{margin-top:18px;font-size:28px}
+#slide3 table{margin-top:8px;table-layout:fixed;background:white;border:1px solid #e4ebf0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);font-size:20px}
+#slide3 th{background:#eaf1f6;color:#3d5c73;font-size:17px;letter-spacing:.045em;text-transform:uppercase}
+#slide3 th,#slide3 td{padding:12px 21px;border-color:#e9eef2}
+#slide3 td:first-child{font-weight:760}
+#slide3 tr:last-child td{border-bottom:0}
+#slide3 tr:nth-child(2){background:#fff8f7}
+#slide3 tr:nth-child(4){background:#f1f9f7}
+#slide3 th:nth-child(1){width:17%}#slide3 th:nth-child(2){width:35%}#slide3 th:nth-child(3){width:20%}#slide3 th:nth-child(4){width:28%}
+#slide3 .note{margin-top:17px;font-size:17px}
+#slide3 .statement{margin-top:18px;font-size:28px}
 
 /* 04 — Method is a readable sequence rather than a paragraph of settings. */
-#slide3 .grid{margin-top:12px;gap:22px}
-#slide3 .card{min-height:380px;padding:24px 29px}
-#slide3 .card h3{font-size:24px;margin:0 0 18px}
+#slide4 .grid{margin-top:12px;gap:22px}
+#slide4 .card{min-height:380px;padding:24px 29px}
+#slide4 .card h3{font-size:24px;margin:0 0 18px}
 .experimentSteps{list-style:none;padding:0;margin:0;counter-reset:step}
 .experimentSteps li{counter-increment:step;display:grid;grid-template-columns:43px 155px 1fr;align-items:center;gap:13px;min-height:85px;border-top:1px solid #e8eef2;color:#52687a;font-size:18px}
 .experimentSteps li:first-child{border-top:0}
@@ -79,8 +79,8 @@ nav button{padding:6px 13px;min-width:48px;min-height:42px;font-size:17px;border
 .experimentConfig>div:first-child{border-top:0}
 .experimentConfig dt{color:#60798d;font-size:17px;font-weight:700}
 .experimentConfig dd{margin:0;color:#1e3a50;font-size:18px;font-weight:640}
-#slide3 .card small{display:block;margin-top:13px;font-size:15px}
-#slide3>.note{margin-top:18px}
+#slide4 .card small{display:block;margin-top:13px;font-size:15px}
+#slide4>.note{margin-top:18px}
 
 /* 05 — Ordered-input results: charts and two numeric takeaways. */
 #slide6 .legend,#slide7 .legend{gap:9px}
@@ -139,12 +139,12 @@ section h2{margin-top:22px;margin-bottom:28px}
 #slide2 .card{min-height:430px}
 #slide2 .card p{font-size:20px;line-height:1.6;color:#33495b}
 #slide2 .statement{font-size:28px;line-height:1.6}
-#slide5 .bodyCopy{font-size:23px;margin-top:25px}
-#slide3 .card{min-height:415px}
+#slide3 .bodyCopy{font-size:23px;margin-top:25px}
+#slide4 .card{min-height:415px}
 .experimentSteps li{grid-template-columns:43px 135px 1fr;min-height:100px}
 .experimentSteps li span{font-size:19px;line-height:1.6}
 .experimentConfig dd{font-size:19px;font-weight:500;line-height:1.55}
-#slide3 .bodyCopy{font-size:21px;line-height:1.65;margin-top:24px}
+#slide4 .bodyCopy{font-size:21px;line-height:1.65;margin-top:24px}
 #slide6 .orderedStats>div{align-items:center;padding:13px 20px;gap:17px}
 #slide6 .orderedStats p{font-size:18px;line-height:1.5;margin:0}
 .resultTakeaway{font-size:23px;line-height:1.6;margin:21px 0 0}
@@ -160,7 +160,7 @@ section h2{margin-top:22px;margin-bottom:28px}
 #slide11 .card p{font-size:23px;line-height:1.65}
 #slide11 .bodyCopy{font-size:23px;margin-top:30px}
 #slide11 .statement{margin-top:30px;font-size:30px}
-#slide4 h2,#slide9 h2{font-size:42px;margin-bottom:24px}
+#slide5 h2,#slide9 h2{font-size:42px;margin-bottom:24px}
 #slide9 .labBottom{grid-template-columns:1.2fr .8fr}
 #slide9 .labBottom>div{min-height:174px}
 #slide9 .labExplanation p{font-size:18px;line-height:1.55}
@@ -195,3 +195,85 @@ section h2{margin-top:22px;margin-bottom:28px}
 .complexityTable td span{display:block;font-size:18px;line-height:1.4;color:#33495b}
 .complexityNote{font-size:19px;line-height:1.6;margin:22px 0 15px;color:#33495b}
 .complexityTakeaway{font-size:23px;line-height:1.6;margin:0;font-weight:650}
+
+/* Rebalance pages after removing the selected introductory and closing text. */
+#slide1 h1{font-size:96px;margin:30px 0 40px}
+#slide1 .card{min-height:285px;padding:32px}
+#slide1 .card h3{font-size:25px;line-height:1.55;margin:0 0 26px}
+#slide1 .card p{font-size:25px;line-height:1.85}
+#slide1 .statement{margin-top:40px;font-size:35px}
+#slide2 .card{min-height:590px;padding:24px 19px}
+#slide2 .card h3{font-size:27px;margin-bottom:13px}
+#slide2 .mini{height:250px}
+#slide2 .card p{font-size:22px;line-height:1.75;margin-top:19px}
+#slide4 .card{min-height:570px;padding:32px}
+#slide4 .card h3{font-size:26px;margin-bottom:25px}
+#slide4 .experimentSteps li{min-height:140px;grid-template-columns:43px 165px 1fr}
+#slide4 .experimentSteps b{font-size:22px}
+#slide4 .experimentSteps li span{font-size:22px;line-height:1.65}
+#slide4 .experimentConfig>div{padding:21px 0}
+#slide4 .experimentConfig dt{font-size:19px}
+#slide4 .experimentConfig dd{font-size:22px;line-height:1.65}
+#slide3 table{font-size:24px}
+#slide3 th{font-size:20px;line-height:1.5}
+#slide3 th,#slide3 td{padding:22px 24px}
+#slide3 td{line-height:1.5}
+#slide3 .bodyCopy{margin-top:28px;font-size:24px;line-height:1.65}
+#slide6 .chart{height:350px}
+#slide6 .orderedCharts>div{padding:18px 20px 8px}
+#slide6 .grid.two h3{font-size:23px;margin-bottom:8px}
+#slide6 .orderedStats{margin-top:22px}
+#slide6 .orderedStats>div{min-height:110px;padding:16px 24px}
+#slide6 .big{font-size:64px}
+#slide6 .orderedStats p{font-size:20px;line-height:1.55}
+
+/* Random results: promote the B+ explanation into readable body text. */
+#slide7 .randomSummary{font-size:27px;line-height:1.5;font-weight:650;margin:20px 0 14px;color:#006dcf}
+#slide7 .bplusAnalysis p{font-size:22px;line-height:1.55;margin:9px 0;color:#33495b}
+#slide7 .bplusAnalysis strong{color:#285675}
+#slide7 .bplusAnalysis sub{font-size:.7em}
+
+/* Let the comparison table occupy the space freed by its closing paragraphs. */
+#slide10 .complexityTable{height:640px}
+#slide10 .complexityTable thead th{font-size:21px;padding:17px 16px}
+#slide10 .complexityTable td,#slide10 .complexityTable tbody th{padding:14px 16px}
+#slide10 .complexityTable .orderCell{font-size:25px}
+#slide10 .complexityTable .bstLabel,#slide10 .complexityTable .splayLabel{font-size:23px}
+#slide10 .complexityTable td strong{font-size:26px;margin-bottom:6px}
+#slide10 .complexityTable td span{font-size:19px;line-height:1.5}
+
+/* Closing slide: larger conclusion cards, followed by the experiment's scope. */
+#slide11 .three{gap:24px}
+#slide11 .card{min-height:400px;padding:30px}
+#slide11 .card h3{font-size:27px;line-height:1.5;margin:0 0 23px}
+#slide11 .card p{font-size:25px;line-height:1.75}
+#slide11 .finalScope{margin-top:30px;padding:24px 30px;background:white;border:1px solid #e1e8ed;border-radius:18px}
+#slide11 .finalScope h3{font-size:26px;color:#285675;margin:0 0 12px}
+#slide11 .finalScope p{font-size:25px;line-height:1.7;color:#33495b;margin:0}
+
+/* Definitions from lectures 1–2: leave more room for invariants beneath the diagrams. */
+#slide2 .card{min-height:630px;padding:22px 19px}
+#slide2 .mini{height:205px}
+#slide2 .card p{font-size:21px;line-height:1.65;margin-top:17px}
+
+/* Distinguish expected and amortized per-operation costs from worst-case costs. */
+#slide3 th:nth-child(1){width:17%}
+#slide3 th:nth-child(2){width:35%}
+#slide3 th:nth-child(3),#slide3 th:nth-child(4){width:24%}
+#slide3 .operationCost{white-space:nowrap}
+#slide3 .costQualifier{font-size:18px;color:#52687a}
+
+/* Common bound for the other three trees, aligned below the scenario table. */
+#slide10 .complexityTable{height:545px}
+#slide10 .complexityTable td,#slide10 .complexityTable tbody th{padding:10px 16px}
+#slide10 .balancedComparison{margin-top:18px;padding:15px 22px;background:#edf4f9;border:1px solid #dce7ef;border-radius:14px}
+#slide10 .balancedComparison strong{font-size:25px;color:#006dcf;line-height:1.4}
+#slide10 .balancedComparison p{font-size:21px;color:#33495b;line-height:1.5;margin:6px 0 0}
+#slide10 .complexityTable td strong{font-size:24px;margin-bottom:4px}
+#slide10 .complexityTable td span{font-size:18px;line-height:1.4}
+
+/* Plot logged coordinates explicitly; tick labels are the logarithms themselves. */
+.chart .chartGrid{stroke:#dde3e8;stroke-width:1}
+.chart .chartAxis{fill:none;stroke:#49667c;stroke-width:1.8;stroke-linejoin:round}
+.chart text{font-size:17px}
+.chart .chartAxisTitle{font-size:21px;font-weight:650;fill:#285675}

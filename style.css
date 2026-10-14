@@ -7,9 +7,9 @@ body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;font-variant-numeric:ta
 #slide2 .card{border-radius:0;border-right:1px solid var(--hairline)}
 #slide2 .card:last-child{border:0}
 button,select{min-height:44px;border-radius:var(--r-pill);transition:transform .18s var(--ease-out-quart),background .18s}
-button:active{transform:scale(.97)}.tree{height:290px}.chart{height:285px}.status{height:45px;font-size:20px}.metric{gap:15px;font-size:18px}.metric b{font-size:25px}.sub{margin-bottom:22px}.tree .node{transition:transform .45s var(--ease-spring)}.tree line{transition:all .45s var(--ease-spring)}#slide4 .card p{margin:12px 0}#slide4 .big{font-size:60px}#slide9>.note{font-size:16px;margin-top:16px}.controls{margin-top:12px}nav{background:rgba(245,245,247,.85);backdrop-filter:blur(20px) saturate(180%);border-radius:var(--r-pill);padding:5px 10px;opacity:.7}nav:hover{opacity:1}
+button:active{transform:scale(.97)}.tree{height:290px}.chart{height:285px}.status{height:45px;font-size:20px}.metric{gap:15px;font-size:18px}.metric b{font-size:25px}.sub{margin-bottom:22px}.tree .node{transition:transform .45s var(--ease-spring)}.tree line{transition:all .45s var(--ease-spring)}#slide5 .card p{margin:12px 0}#slide5 .big{font-size:60px}#slide9>.note{font-size:16px;margin-top:16px}.controls{margin-top:12px}nav{background:rgba(245,245,247,.85);backdrop-filter:blur(20px) saturate(180%);border-radius:var(--r-pill);padding:5px 10px;opacity:.7}nav:hover{opacity:1}
 @media(prefers-reduced-transparency:reduce){nav{background:var(--surface);backdrop-filter:none}}@media(prefers-contrast:more){nav{background:white;border:1px solid #555}.muted,small,.note{color:#333}}
-#slide4 .card{padding:18px 25px}#slide4 .card h3{margin:0 0 10px}#slide4 .card p{font-size:21px;line-height:1.45}#slide4 .card .note{font-size:17px}#cost7 svg{height:65px;width:100%}#slide4 .card .big{font-size:56px}
+#slide5 .card{padding:18px 25px}#slide5 .card h3{margin:0 0 10px}#slide5 .card p{font-size:21px;line-height:1.45}#slide5 .card .note{font-size:17px}#cost7 svg{height:65px;width:100%}#slide5 .card .big{font-size:56px}
 
 /* Keep presentation corners free of labels and controls. */
 nav{right:auto;left:50%;transform:translateX(-50%);bottom:12px}

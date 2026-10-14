@@ -1,7 +1,7 @@
 /* Two-page experiment lab. Motion represents actual state transitions, not timing. */
-#slide4,#slide9{--lab-ink:#203749;--lab-muted:#60778a;--lab-line:#dbe5ec;--lab-blue:#0a75c9}
-#slide4 h2,#slide9 h2{font-size:42px;margin-bottom:14px}
-#slide4 .sub,#slide9 .sub{font-size:19px;margin-bottom:17px}
+#slide5,#slide9{--lab-ink:#203749;--lab-muted:#60778a;--lab-line:#dbe5ec;--lab-blue:#0a75c9}
+#slide5 h2,#slide9 h2{font-size:42px;margin-bottom:14px}
+#slide5 .sub,#slide9 .sub{font-size:19px;margin-bottom:17px}
 .labTabs{display:flex;gap:11px;margin-bottom:12px}
 .labTabs button{flex:1;min-height:46px;padding:8px 14px;background:white;border:1px solid #dce6ed;border-radius:13px;color:#38566b;font-size:17px;font-weight:700;box-shadow:0 3px 10px rgba(26,55,75,.035)}
 .labTabs button.selected{background:#173e5c;color:white;border-color:#173e5c;box-shadow:0 6px 17px rgba(23,62,92,.18)}
