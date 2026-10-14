@@ -1,0 +1,56 @@
+.detailed{padding-top:36px}.detailed h2{font-size:38px;margin:0 0 14px}.traceIntro{font-size:20px;margin:0 0 14px;color:#6e6e73}.traceTabs{display:flex;gap:10px;margin-bottom:12px}.traceTabs button{font-size:17px}.operationStrip{display:flex;align-items:center;gap:25px;height:48px;margin-bottom:10px}.operationStrip>b{font-size:21px;min-width:135px}.operationStrip>span{display:flex;gap:7px}.operationStrip i{font-style:normal;border-radius:50%;width:30px;height:30px;text-align:center;line-height:30px;background:#e8e8ed}.operationStrip .currentKey{background:#0071e3;color:white}.operationStrip small{margin-left:auto;font-size:15px}.tracePanel{background:white;border-radius:18px;padding:14px 20px}.tracePanel h3{margin:0 0 6px;font-size:24px}.tracePanel h3 small{font-weight:400;margin-left:15px}.bst h3{color:#c95652}.splay h3{color:#168e82}.forest{width:100%;height:280px;overflow:visible}.forest line{stroke:#bfc6cc;stroke-width:2;transition:all .38s var(--ease-spring)}.forest .pathEdge{stroke:#168e82;stroke-width:3}.traceNode{transition:transform .38s var(--ease-spring)}.traceNode circle{fill:white;stroke:#8b969f;stroke-width:2}.traceNode text{font-size:17px;text-anchor:middle;dominant-baseline:middle}.traceVisited circle{fill:#e6f3f0;stroke:#168e82}.traceHot circle{fill:#0071e3;stroke:#0071e3}.traceHot text{fill:white}.forestLabel{fill:#6e6e73;font-size:13px}.emptyTree{font-size:30px;fill:#c5c5ca}.traceMetrics{display:flex;gap:24px;align-items:center;font-size:17px}.traceMetrics b{font-size:24px;font-variant-numeric:tabular-nums;color:#1d1d1f}.traceMessage{font-size:18px;line-height:1.5;height:54px;margin-top:8px}.traceControls{display:flex;align-items:center;gap:9px;margin:14px 0 6px;font-size:16px}.traceControls button{padding:6px 13px}.traceStep{margin-left:auto;color:#6e6e73;font-size:15px}.traceRange{width:100%;height:15px;accent-color:#0071e3;margin:0 0 6px}.traceExplanation{display:grid;grid-template-columns:1fr 255px;gap:28px}.traceLesson{font-size:18px;line-height:1.55;margin:3px 0 7px}.traceTheory{font-size:18px;color:#0071e3}.traceEvidence{font-size:15px;color:#6e6e73;margin:7px 0}.traceCost svg{width:100%;height:75px}.traceCost small{font-size:13px}.traceDefinitions{font-size:14px;margin-top:5px}.traceDefinitions[open]{position:absolute;bottom:68px;left:78px;right:78px;background:white;box-shadow:0 2px 8px #0001,0 12px 40px #0002;border-radius:18px;padding:18px;z-index:5}.traceDefinitions p{font-size:17px;margin:10px 0 0}@media print{.traceControls,.traceRange,.traceDefinitions{display:none}}@media(prefers-reduced-motion:reduce){.forest *{transition:none!important}}
+/* Reserve a clear bottom zone for global presentation controls. */
+.detailed .forest{height:230px}.traceMessage{height:44px}.traceExplanation{gap:22px}.traceLesson{font-size:17px}.traceEvidence{font-size:14px}.traceDefinitions{margin-top:2px}
+
+.traceStage{display:flex;align-items:center;gap:14px;min-height:45px;margin:-3px 0 10px;padding:7px 15px;border-radius:12px;background:#e9f1fa;color:#173c62}.stageBadge{flex:none;padding:4px 11px;border-radius:99px;background:#0071e3;color:white;font-size:14px;font-weight:700}.stageMessage{font-size:17px;font-weight:600;line-height:1.4}.detailed .forest{height:205px}.traceMessage{height:38px;font-size:16px}.traceExplanation{margin-top:1px}.traceControls{margin-top:8px}.traceLesson{line-height:1.45}.tracePanel{padding-top:11px;padding-bottom:10px}
+
+/* Motion vocabulary for the narrated tree traces: coral = BST, teal = Splay. */
+.tracePanel{--tree-accent:#c95652;position:relative;box-shadow:0 12px 28px rgba(25,43,59,.055);border:1px solid rgba(31,48,64,.06)}
+.tracePanel.splay{--tree-accent:#168e82}
+.tracePanel h3{display:flex;align-items:baseline;gap:12px}
+.tracePanel h3 small{font-size:15px;color:#78838c;margin:0}
+.forest{display:block;height:215px;border-radius:14px;background:linear-gradient(180deg,#fbfcfd,#f8fafb)}
+.forestGroup{fill:color-mix(in srgb,var(--tree-accent) 5%,white);stroke:color-mix(in srgb,var(--tree-accent) 15%,white);stroke-width:1}
+.forestLabel{font-size:14px;font-weight:700;fill:color-mix(in srgb,var(--tree-accent) 75%,#333)}
+.forest .traceEdge{stroke:#b8c2c9;stroke-width:2.2;transition:x1 .52s var(--ease-spring),y1 .52s var(--ease-spring),x2 .52s var(--ease-spring),y2 .52s var(--ease-spring),stroke .2s,stroke-width .2s}
+.forest .traceEdge.pathEdge{stroke:var(--tree-accent);stroke-width:3.8}
+.traceNode{transition:transform .52s var(--ease-spring)}
+.traceNode .nodeHalo{fill:transparent;stroke:transparent;stroke-width:2.5}
+.traceNode .nodeDisc{fill:white;stroke:#96a5af;stroke-width:2.2;filter:drop-shadow(0 2px 2px rgba(32,48,60,.08));transition:fill .25s,stroke .25s,stroke-width .25s}
+.traceNode text{font-size:17px;font-weight:700;fill:#354350;transition:fill .25s}
+.traceNode.traceVisited .nodeDisc{fill:color-mix(in srgb,var(--tree-accent) 14%,white);stroke:var(--tree-accent)}
+.traceNode.traceHot .nodeDisc{fill:var(--tree-accent);stroke:var(--tree-accent);stroke-width:3}
+.traceNode.traceHot text{fill:white}
+.traceNode.traceHot .nodeHalo{stroke:color-mix(in srgb,var(--tree-accent) 42%,white);animation:trace-pulse .55s ease-out both}
+.traceNode.traceEnter .nodeDisc,.traceNode.traceEnter text{animation:trace-born .43s var(--ease-spring) both}
+.traceEdge.traceEnter{animation:edge-born .45s ease-out both}
+.traceNode.traceExit{pointer-events:none;animation:trace-exit .38s ease-in both}
+.traceMetrics{justify-content:space-between;gap:10px;padding:8px 2px 0;color:#687783;font-size:15px}
+.traceMetrics span{display:flex;align-items:baseline;gap:7px;white-space:nowrap}
+.traceMetrics b{font-size:23px;color:var(--tree-accent)}
+.traceMessage{margin-top:5px;min-height:37px;height:auto;font-size:15px;color:#536371}
+.traceStage{border:1px solid #dce8f5;background:#eef5fc;box-shadow:0 5px 14px rgba(27,75,124,.045)}
+.traceStage[data-event="rotate"],.traceStage[data-event="assemble"]{background:#e9f6f2;border-color:#d1e9e3}
+.stageEvent{flex:none;border:1px solid #b9cfe3;border-radius:6px;padding:3px 7px;color:#44617c;font-size:13px;font-weight:700;letter-spacing:.04em}
+.traceStage[data-event="rotate"] .stageEvent,.traceStage[data-event="assemble"] .stageEvent{border-color:#a5d4ca;color:#136d64}
+.stageMessage{font-size:17px;font-weight:600;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.traceControls{margin-top:10px;gap:10px}
+.traceControls button{border-color:#d7e1e8;background:#fff;box-shadow:0 2px 5px rgba(26,52,72,.05)}
+.traceControls [data-play]{min-width:88px;background:#243b50;color:white;border-color:#243b50;font-weight:700}
+.traceControls [data-play]:hover{background:#0e658a;border-color:#0e658a}
+.traceControls button:hover:not([data-play]){background:#eef5fa;color:#18394f;border-color:#bdd0de}
+.traceRange{appearance:none;-webkit-appearance:none;height:8px;border-radius:99px;background:linear-gradient(to right,#168e82 0 var(--range-pct,0%),#dbe5e9 var(--range-pct,0%) 100%);cursor:pointer;margin:9px 0 6px}
+.traceRange::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:white;border:4px solid #168e82;box-shadow:0 2px 8px rgba(22,142,130,.25)}
+.traceRange::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:white;border:4px solid #168e82;box-shadow:0 2px 8px rgba(22,142,130,.25)}
+.traceCost{align-self:start;border-radius:12px;padding:8px 12px;background:#f5f8fa}
+.traceCost svg{display:block;height:72px}
+.traceCost small{display:block;white-space:nowrap;font-variant-numeric:tabular-nums}
+.traceCost small:last-child{font-weight:700}
+@keyframes trace-born{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+@keyframes edge-born{from{opacity:0}to{opacity:1}}
+@keyframes trace-exit{to{opacity:0;filter:blur(3px)}}
+@keyframes trace-pulse{from{opacity:0;transform:scale(.7)}45%{opacity:1}to{opacity:0;transform:scale(1.1)}}
+@media(prefers-reduced-motion:reduce){.traceNode,.forest .traceEdge{transition:none!important}.traceNode.traceEnter .nodeDisc,.traceNode.traceEnter text,.traceEdge.traceEnter,.traceNode.traceExit,.traceNode.traceHot .nodeHalo{animation:none!important}}
+.operationStrip i{font-weight:700;color:#667783;transition:background .22s,color .22s,transform .22s,box-shadow .22s}
+.operationStrip i.pastKey{background:#dceeea;color:#168e82}
+.operationStrip i.currentKey{background:#0071e3;color:white;transform:scale(1.14);box-shadow:0 0 0 5px rgba(0,113,227,.11)}

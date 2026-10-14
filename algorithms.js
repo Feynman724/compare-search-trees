@@ -1,0 +1,11 @@
+/* Every frame is an immutable snapshot of executed pointer operations. */
+class SearchTree{
+ constructor(splay=false){this.root=null;this.splay=splay;this.visits=0;this.rotations=0;this.links=0;this.frames=[];this.path=[];this.current=0;this.emit('空树');}
+ emit(message,hot=null){this.frames.push({root:JSON.parse(JSON.stringify(this.root)),visits:this.visits,rotations:this.rotations,links:this.links,path:[...this.path],hot,message,current:this.current});}
+ visit(n,k){this.visits++;this.path.push(n.k);this.emit(`${k} ${k<n.k?'小于':k>n.k?'大于':'等于'} ${n.k}${k===n.k?'，找到目标':k<n.k?'，向左':'，向右'}`,n.k);}
+ stretch(k){if(!this.root)return;let t=this.root,head={l:null,r:null},l=head,r=head;while(true){this.visit(t,k);if(k<t.k){if(!t.l)break;if(k<t.l.k){let y=t.l;t.l=y.r;y.r=t;t=y;this.rotations++;this.links+=2;if(!t.l)break;}r.l=t;r=t;t=t.l;this.links++;}else if(k>t.k){if(!t.r)break;if(k>t.r.k){let y=t.r;t.r=y.l;y.l=t;t=y;this.rotations++;this.links+=2;if(!t.r)break;}l.r=t;l=t;t=t.r;this.links++;}else break;}l.r=t.l;r.l=t.r;t.l=head.r;t.r=head.l;this.links+=4;this.root=t;}
+ insert(k){this.current=k;this.path=[];if(!this.root){this.root={k,l:null,r:null};this.links++;this.emit(`插入 ${k}，成为根`,k);return;}if(this.splay){this.stretch(k);if(this.root.k===k)return;let n={k,l:null,r:null};if(k<this.root.k){n.l=this.root.l;n.r=this.root;this.root.l=null;}else{n.r=this.root.r;n.l=this.root;this.root.r=null;}this.root=n;this.links+=4;this.emit(`新最大值 ${k} 成为根；连接左子树，无旋转`,k);}else{let t=this.root;while(t){this.visit(t,k);if(k===t.k)return;let side=k<t.k?'l':'r';if(!t[side]){t[side]={k,l:null,r:null};this.links++;break;}t=t[side];}this.emit(`插入 ${k}，连接新叶节点`,k);}}
+ delete(k){this.current=k;this.path=[];let p=null,t=this.root,side=null;while(t){this.visit(t,k);if(t.k===k)break;p=t;side=k<t.k?'l':'r';t=t[side];}if(!t)return;if(t.l&&t.r){let q=t,s=t.r;while(s.l){q=s;s=s.l;}t.k=s.k;if(q===t)q.r=s.r;else q.l=s.r;}else{let child=t.l||t.r;if(p)p[side]=child;else this.root=child;}this.links++;this.emit(`删除 ${k}，重新连接剩余子树`);}
+}
+function buildFrames(order,splay=false,deletion=null){let t=new SearchTree(splay);order.forEach(k=>t.insert(k));if(deletion){t.frames=[];t.visits=0;t.links=0;t.path=[];t.emit('相同的初始右链；删除指标从零开始');deletion.forEach(k=>t.delete(k));}return t.frames;}
+if(typeof module!=='undefined')module.exports={SearchTree,buildFrames};
