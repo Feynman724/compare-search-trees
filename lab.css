@@ -1,7 +1,7 @@
 /* Two-page experiment lab. Motion represents actual state transitions, not timing. */
-#slide7,#slide8{--lab-ink:#203749;--lab-muted:#60778a;--lab-line:#dbe5ec;--lab-blue:#0a75c9}
-#slide7 h2,#slide8 h2{font-size:42px;margin-bottom:14px}
-#slide7 .sub,#slide8 .sub{font-size:19px;margin-bottom:17px}
+#slide4,#slide9{--lab-ink:#203749;--lab-muted:#60778a;--lab-line:#dbe5ec;--lab-blue:#0a75c9}
+#slide4 h2,#slide9 h2{font-size:42px;margin-bottom:14px}
+#slide4 .sub,#slide9 .sub{font-size:19px;margin-bottom:17px}
 .labTabs{display:flex;gap:11px;margin-bottom:12px}
 .labTabs button{flex:1;min-height:46px;padding:8px 14px;background:white;border:1px solid #dce6ed;border-radius:13px;color:#38566b;font-size:17px;font-weight:700;box-shadow:0 3px 10px rgba(26,55,75,.035)}
 .labTabs button.selected{background:#173e5c;color:white;border-color:#173e5c;box-shadow:0 6px 17px rgba(23,62,92,.18)}
@@ -82,7 +82,7 @@
 .labTimeTrack i{display:block;height:100%;border-radius:99px}
 .labTimeRow b{text-align:right;font-size:12px;color:#294d64;font-variant-numeric:tabular-nums}
 .labEvidence>small{display:block;margin-top:2px}
-#slide8 .labControls{margin-top:9px}
-#slide8 .labRange{margin-top:5px}
+#slide9 .labControls{margin-top:9px}
+#slide9 .labRange{margin-top:5px}
 @keyframes lab-pop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.labNode,.labSvg .labEdges line{transition:none!important}.labNode.labNew circle,.labNode.labNew rect,.labNode.labNew text{animation:none!important}}

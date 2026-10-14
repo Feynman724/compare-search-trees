@@ -54,21 +54,21 @@ nav button{padding:6px 13px;min-width:48px;min-height:42px;font-size:17px;border
 #slide2 .statement{margin-top:31px}
 
 /* 03 — Theory table: separate worst-case guarantees from measurements. */
-#slide3 table{margin-top:8px;table-layout:fixed;background:white;border:1px solid #e4ebf0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);font-size:20px}
-#slide3 th{background:#eaf1f6;color:#3d5c73;font-size:17px;letter-spacing:.045em;text-transform:uppercase}
-#slide3 th,#slide3 td{padding:12px 21px;border-color:#e9eef2}
-#slide3 td:first-child{font-weight:760}
-#slide3 tr:last-child td{border-bottom:0}
-#slide3 tr:nth-child(2){background:#fff8f7}
-#slide3 tr:nth-child(4){background:#f1f9f7}
-#slide3 th:nth-child(1){width:17%}#slide3 th:nth-child(2){width:35%}#slide3 th:nth-child(3){width:20%}#slide3 th:nth-child(4){width:28%}
-#slide3 .note{margin-top:17px;font-size:17px}
-#slide3 .statement{margin-top:18px;font-size:28px}
+#slide5 table{margin-top:8px;table-layout:fixed;background:white;border:1px solid #e4ebf0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);font-size:20px}
+#slide5 th{background:#eaf1f6;color:#3d5c73;font-size:17px;letter-spacing:.045em;text-transform:uppercase}
+#slide5 th,#slide5 td{padding:12px 21px;border-color:#e9eef2}
+#slide5 td:first-child{font-weight:760}
+#slide5 tr:last-child td{border-bottom:0}
+#slide5 tr:nth-child(2){background:#fff8f7}
+#slide5 tr:nth-child(4){background:#f1f9f7}
+#slide5 th:nth-child(1){width:17%}#slide5 th:nth-child(2){width:35%}#slide5 th:nth-child(3){width:20%}#slide5 th:nth-child(4){width:28%}
+#slide5 .note{margin-top:17px;font-size:17px}
+#slide5 .statement{margin-top:18px;font-size:28px}
 
 /* 04 — Method is a readable sequence rather than a paragraph of settings. */
-#slide4 .grid{margin-top:12px;gap:22px}
-#slide4 .card{min-height:380px;padding:24px 29px}
-#slide4 .card h3{font-size:24px;margin:0 0 18px}
+#slide3 .grid{margin-top:12px;gap:22px}
+#slide3 .card{min-height:380px;padding:24px 29px}
+#slide3 .card h3{font-size:24px;margin:0 0 18px}
 .experimentSteps{list-style:none;padding:0;margin:0;counter-reset:step}
 .experimentSteps li{counter-increment:step;display:grid;grid-template-columns:43px 155px 1fr;align-items:center;gap:13px;min-height:85px;border-top:1px solid #e8eef2;color:#52687a;font-size:18px}
 .experimentSteps li:first-child{border-top:0}
@@ -79,47 +79,98 @@ nav button{padding:6px 13px;min-width:48px;min-height:42px;font-size:17px;border
 .experimentConfig>div:first-child{border-top:0}
 .experimentConfig dt{color:#60798d;font-size:17px;font-weight:700}
 .experimentConfig dd{margin:0;color:#1e3a50;font-size:18px;font-weight:640}
-#slide4 .card small{display:block;margin-top:13px;font-size:15px}
-#slide4>.note{margin-top:18px}
+#slide3 .card small{display:block;margin-top:13px;font-size:15px}
+#slide3>.note{margin-top:18px}
 
 /* 05 — Ordered-input results: charts and two numeric takeaways. */
-#slide5 .legend,#slide6 .legend{gap:9px}
-#slide5 .legend button,#slide6 .legend button{border:1px solid #dfe7ed;background:#fff;padding:6px 13px;font-size:15px;font-weight:750}
-#slide5 .legend button[aria-pressed="false"],#slide6 .legend button[aria-pressed="false"]{background:#f0f3f5}
-#slide5 .orderedCharts{gap:20px}
-#slide5 .orderedCharts>div{background:white;border:1px solid #e5ebf0;border-radius:18px;padding:14px 18px 2px;box-shadow:var(--shadow)}
-#slide5 .grid.two h3{font-size:21px;margin:3px 0 0;color:#294f6d}
-#slide5 .chart{height:280px}
-#slide5 .orderedStats{gap:20px;margin-top:17px}
-#slide5 .orderedStats>div{background:#edf5fb;border-radius:16px;padding:11px 22px;display:flex;align-items:baseline;gap:18px}
-#slide5 .big{font-size:56px;line-height:1.2;white-space:nowrap}
-#slide5 .note{font-size:16px;margin:0}
+#slide6 .legend,#slide7 .legend{gap:9px}
+#slide6 .legend button,#slide7 .legend button{border:1px solid #dfe7ed;background:#fff;padding:6px 13px;font-size:15px;font-weight:750}
+#slide6 .legend button[aria-pressed="false"],#slide7 .legend button[aria-pressed="false"]{background:#f0f3f5}
+#slide6 .orderedCharts{gap:20px}
+#slide6 .orderedCharts>div{background:white;border:1px solid #e5ebf0;border-radius:18px;padding:14px 18px 2px;box-shadow:var(--shadow)}
+#slide6 .grid.two h3{font-size:21px;margin:3px 0 0;color:#294f6d}
+#slide6 .chart{height:280px}
+#slide6 .orderedStats{gap:20px;margin-top:17px}
+#slide6 .orderedStats>div{background:#edf5fb;border-radius:16px;padding:11px 22px;display:flex;align-items:baseline;gap:18px}
+#slide6 .big{font-size:56px;line-height:1.2;white-space:nowrap}
+#slide6 .note{font-size:16px;margin:0}
 
 /* 06 — Random-input chart and rank bars. */
-#slide6 .grid.two{grid-template-columns:1.08fr .92fr;gap:20px}
-#slide6 .grid.two>div{background:white;border:1px solid #e5ebf0;border-radius:18px;padding:15px 18px;box-shadow:var(--shadow)}
-#slide6 .chart{height:290px}
-#slide6 .bars>div{display:grid;grid-template-columns:123px 1fr 71px;gap:10px;align-items:center;margin:14px 0;font-size:18px}
-#slide6 .bars>div>span:first-child{width:auto!important;font-weight:700;color:#28445b}
-#slide6 .bars .bar{height:21px;max-width:100%;border-radius:6px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.08)}
-#slide6 .bars b{font-variant-numeric:tabular-nums;font-size:17px;color:#34546b}
-#slide6 .bars small{display:block;margin-top:19px;font-size:15px}
-#slide6 .statement{margin-top:22px}
+#slide7 .grid.two{grid-template-columns:1.08fr .92fr;gap:20px}
+#slide7 .grid.two>div{background:white;border:1px solid #e5ebf0;border-radius:18px;padding:15px 18px;box-shadow:var(--shadow)}
+#slide7 .chart{height:290px}
+#slide7 .bars>div{display:grid;grid-template-columns:123px 1fr 71px;gap:10px;align-items:center;margin:14px 0;font-size:18px}
+#slide7 .bars>div>span:first-child{width:auto!important;font-weight:700;color:#28445b}
+#slide7 .bars .bar{height:21px;max-width:100%;border-radius:6px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.08)}
+#slide7 .bars b{font-variant-numeric:tabular-nums;font-size:17px;color:#34546b}
+#slide7 .bars small{display:block;margin-top:19px;font-size:15px}
+#slide7 .statement{margin-top:22px}
 
-#slide9::before{background:radial-gradient(circle at 83% 23%,rgba(28,125,194,.09),transparent 33%),#f7f9fb}
-#slide9 .three{background:transparent;gap:18px;padding:0}
-#slide9 .card{border-radius:18px;border:1px solid #e1e8ed;padding:24px 25px;min-height:178px}
-#slide9 .card h3{font-size:23px;margin:1px 0 12px;color:#285675}
-#slide9 .card p{font-size:21px;line-height:1.42;margin:0}
-#slide9 .card:nth-child(1){border-top:5px solid #c95652}
-#slide9 .card:nth-child(2){border-top:5px solid #168e82}
-#slide9 .card:nth-child(3){border-top:5px solid #347ed1}
-#slide9>.three+p{margin-top:27px;font-size:22px;line-height:1.5}
-#slide9 .rule{margin:24px 0 18px}
-#slide9>.note{font-size:17px;line-height:1.5}
-#slide9 .statement{margin-top:21px;font-size:32px}
+#slide10::before{background:radial-gradient(circle at 83% 23%,rgba(28,125,194,.09),transparent 33%),#f7f9fb}
+#slide10 .three{background:transparent;gap:18px;padding:0}
+#slide10 .card{border-radius:18px;border:1px solid #e1e8ed;padding:24px 25px;min-height:178px}
+#slide10 .card h3{font-size:23px;margin:1px 0 12px;color:#285675}
+#slide10 .card p{font-size:21px;line-height:1.42;margin:0}
+#slide10 .card:nth-child(1){border-top:5px solid #c95652}
+#slide10 .card:nth-child(2){border-top:5px solid #168e82}
+#slide10 .card:nth-child(3){border-top:5px solid #347ed1}
+#slide10>.three+p{margin-top:27px;font-size:22px;line-height:1.5}
+#slide10 .rule{margin:24px 0 18px}
+#slide10>.note{font-size:17px;line-height:1.5}
+#slide10 .statement{margin-top:21px;font-size:32px}
 
 @media print{body{background:white}#deck{box-shadow:none}nav,#progress{display:none!important}.slideFooter{bottom:28px}}
 @media(prefers-reduced-motion:reduce){section::before{animation:none!important}}
 
-#slide5 .legend button:hover,#slide6 .legend button:hover{background:#eef4f8;color:inherit}
+#slide6 .legend button:hover,#slide7 .legend button:hover{background:#eef4f8;color:inherit}
+
+/* Revision: one corner cue, complete explanations, and ten-page narrative. */
+.slideMeta{left:auto;right:78px;top:27px;justify-content:flex-end;letter-spacing:.06em}
+.slideMeta span{color:#4b6f8c}
+section h2{margin-top:22px;margin-bottom:28px}
+.intro,.bodyCopy{font-size:23px;line-height:1.65;margin:22px 0 28px;max-width:1370px}
+.chartContext{font-size:19px;line-height:1.5;margin:0 0 17px;color:#33495b}
+#slide1 h1{margin-top:30px}
+#slide1 .intro{max-width:1240px;margin:24px 0 29px;font-size:26px}
+#slide1 .card{min-height:180px}
+#slide1 .card h3{font-size:21px;line-height:1.5;color:#285675;letter-spacing:0;margin:0 0 14px}
+#slide1 .card p{font-size:21px;line-height:1.65;letter-spacing:0;white-space:normal}
+#slide1 .statement{margin-top:29px;font-size:33px}
+#slide2 .card{min-height:430px}
+#slide2 .card p{font-size:20px;line-height:1.6;color:#33495b}
+#slide2 .statement{font-size:28px;line-height:1.6}
+#slide5 .bodyCopy{font-size:23px;margin-top:25px}
+#slide3 .card{min-height:415px}
+.experimentSteps li{grid-template-columns:43px 135px 1fr;min-height:100px}
+.experimentSteps li span{font-size:19px;line-height:1.6}
+.experimentConfig dd{font-size:19px;font-weight:500;line-height:1.55}
+#slide3 .bodyCopy{font-size:21px;line-height:1.65;margin-top:24px}
+#slide6 .orderedStats>div{align-items:center;padding:13px 20px;gap:17px}
+#slide6 .orderedStats p{font-size:18px;line-height:1.5;margin:0}
+.resultTakeaway{font-size:23px;line-height:1.6;margin:21px 0 0}
+#slide7 .bars p{font-size:19px;line-height:1.65;margin:20px 0 0}
+#slide7 .bodyCopy{font-size:21px;margin-top:19px}
+#slide8 .intro{max-width:1300px;margin-bottom:28px}
+.questionGrid .card{padding:28px 32px;min-height:380px}
+.questionGrid h3{font-size:29px;color:#285675;margin:0 0 21px}
+.questionGrid p{font-size:24px;line-height:1.65;margin:17px 0}
+.questionPrompt{color:#006dcf;font-weight:650}
+#slide8 .statement{margin-top:29px;font-size:28px}
+#slide10 .card{min-height:270px}
+#slide10 .card p{font-size:23px;line-height:1.65}
+#slide10 .bodyCopy{font-size:23px;margin-top:30px}
+#slide10 .statement{margin-top:30px;font-size:30px}
+#slide4 h2,#slide9 h2{font-size:42px;margin-bottom:24px}
+#slide9 .labBottom{grid-template-columns:1.2fr .8fr}
+#slide9 .labBottom>div{min-height:174px}
+#slide9 .labExplanation p{font-size:18px;line-height:1.55}
+#slide9 .labControls{margin-top:12px}
+/* Keep the explanation page's controls above the presentation navigation. */
+#slide9 h2{margin-bottom:18px}
+#slide9 .labTabs{margin-bottom:9px}
+#slide9 .labStage{margin-bottom:10px}
+#slide9 .labComparePick{margin-bottom:8px}
+#slide9 .labDuelCard{height:265px}
+#slide9 .labLargeSvg{height:191px}
+#slide9 .labBottom>div{min-height:154px}
+#slide2 .card:last-child{border:1px solid #e1e8ed;border-top:5px solid #b58c36}

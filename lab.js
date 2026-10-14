@@ -1,7 +1,7 @@
 /* One timeline drives the five-tree comparison and analysis views. */
 (function(){
  const labels=['BST','AVL','Splay','Red-Black','B+ Tree'];
- const mechanisms=['不主动平衡','维护高度差','访问后伸展','颜色约束','多路叶节点'];
+ const mechanisms=['更新后不主动平衡','旋转以维持高度差','将访问区域移向根','旋转与变色限制高度','用多个分支缩短路径'];
  const palette=['#c95652','#347ed1','#168e82','#8b6da9','#b58c36'];
  const keys=['ascending','descending','random'];
  const cache=new Map();
@@ -11,9 +11,9 @@
  const tabs=()=>`<div class="labTabs" role="group" aria-label="选择实验序列">${keys.map((key,i)=>`<button data-lab-mode="${key}">${DEMO_SCENARIOS[key].label}</button>`).join('')}</div>`;
  const controls=()=>`<div class="labControls"><button data-lab-action="back" aria-label="上一步">← 上一步</button><button data-lab-action="play" class="labPlay">播放</button><button data-lab-action="next">下一步 →</button><button data-lab-action="operation">下一操作</button><button data-lab-action="insertEnd">看插入完成</button><button data-lab-action="reset">重播</button><label>速度 <select class="labSpeed" aria-label="播放速度"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><span class="labCounter"></span></div><input class="labRange" type="range" min="0" max="36" value="0" aria-label="实验动画进度">`;
  document.querySelector('#labTrees').innerHTML=`${tabs()}<div class="labStage" id="labStage7"></div><div class="labFive">${labels.map((name,i)=>`<article class="labTreeCard" data-tree="${i}" style="--tree-color:${palette[i]}"><header><span class="labTreeIndex">0${i+1}</span><div><h3>${name}</h3><small>${mechanisms[i]}</small></div></header><svg class="labSvg" viewBox="0 0 260 230" role="img" aria-label="${name} 当前结构"></svg><div class="labTreeMeta"><span>层数 <b class="labHeight">0</b></span><span class="labMetricExtra"></span></div><p class="labAction"></p></article>`).join('')}</div><p class="labCaveat">上方只演示 N = 9 的结构变化；B+ 节点容量设为 4 以显出分裂与合并。报告计时使用 N = 1000–100000、B+ 容量 32。</p>${controls()}`;
- document.querySelector('#labInsight').innerHTML=`${tabs()}<div class="labStage" id="labStage8"></div><div class="labComparePick"><span>与 BST 对照</span>${[1,2,3,4].map(i=>`<button data-compare="${i}">${labels[i]}</button>`).join('')}</div><div class="labDuel"><article class="labDuelCard" data-duel="0" style="--tree-color:${palette[0]}"><header><h3>BST</h3><span class="labDuelHeight"></span></header><svg class="labSvg labLargeSvg" viewBox="0 0 550 230" role="img" aria-label="BST 放大结构"></svg><p class="labDuelAction"></p></article><article class="labDuelCard" data-duel="1" style="--tree-color:${palette[2]}"><header><h3 class="labDuelName">Splay</h3><span class="labDuelHeight"></span></header><svg class="labSvg labLargeSvg" viewBox="0 0 550 230" role="img" aria-label="选定树的放大结构"></svg><p class="labDuelAction"></p></article></div><div class="labBottom"><div class="labExplanation"><strong>这一组序列说明什么？</strong><p id="labReason"></p><small>结构动画是教学示例，不是运行时间测量。</small></div><div class="labEvidence"><strong>报告实测 · N = 100000 · 插入 + 删除 / ms</strong><div id="labTimeRows"></div><small>条长为对数比例；准确数值标在右侧。</small></div></div>${controls()}`;
+ document.querySelector('#labInsight').innerHTML=`${tabs()}<div class="labStage" id="labStage8"></div><div class="labComparePick"><span>与 BST 对照</span>${[1,2,3,4].map(i=>`<button data-compare="${i}">${labels[i]}</button>`).join('')}</div><div class="labDuel"><article class="labDuelCard" data-duel="0" style="--tree-color:${palette[0]}"><header><h3>BST</h3><span class="labDuelHeight"></span></header><svg class="labSvg labLargeSvg" viewBox="0 0 550 230" role="img" aria-label="BST 放大结构"></svg><p class="labDuelAction"></p></article><article class="labDuelCard" data-duel="1" style="--tree-color:${palette[2]}"><header><h3 class="labDuelName">Splay</h3><span class="labDuelHeight"></span></header><svg class="labSvg labLargeSvg" viewBox="0 0 550 230" role="img" aria-label="选定树的放大结构"></svg><p class="labDuelAction"></p></article></div><div class="labBottom"><div class="labExplanation"><strong>这一组序列说明什么？</strong><p id="labReason"></p><small>结构动画是教学示例，不是运行时间测量。</small></div><div class="labEvidence"><strong>报告实测 · N = 100000 · 插入 + 删除 / ms</strong><div id="labTimeRows"></div><small>条长按对数比例绘制，右侧显示准确的毫秒数。</small></div></div>${controls()}`;
  function stageText(state){
-  if(state.phase==='setup')return ['空树 · 准备开始','三种方案使用同一组 9 个互不相同的整数。'];
+  if(state.phase==='setup')return ['空树 · 准备开始','五种树使用同一组 9 个不同整数；可以切换插入和删除顺序。'];
   const verb=state.phase==='insert'?'插入':'删除';
   return state.step==='search'?[`定位键 ${state.key} · ${verb}前`,`先沿当前树的搜索路径定位；下一帧才更新结构。`]:[`${verb} ${state.key} 完成`,`五棵树完成同一操作，观察形状与维护动作的差异。`];
  }
@@ -92,9 +92,9 @@
   });
  }
  const reasons={
-  ascending:'升序插入让 BST 沿右链越走越远；升序删除时，BST 每次移除根。平衡树通过维护限制高度，Splay 则利用最近操作的位置。',
-  descending:'BST 升序插入形成右链；降序删除又要反复走到链尾。Splay 在此特殊序列中让待删最大值留在根附近。',
-  random:'随机排列通常让 BST 更分散；维护平衡和伸展仍需要付出旋转、变色或分裂成本。小动画只解释机制，不能推出测速排名。'
+  ascending:'BST 升序插入的路径长度为 0、1、…、N−1，相加是 N(N−1)/2，因此仅插入就有 O(N²) 成本。升序删除则每次移除根，共 O(N)。Splay 每次把新最大值放在根；删除最小值时会伸展并重组，不能用第一次的长路径代表整段成本。',
+  descending:'BST 插入时逐渐形成右链，路径成本累加到 O(N²)；降序删除又从根反复走到链尾，路径同样累加到平方级。这里的 Splay 升序插入后是以最大值为根的左链，降序删除每次移除根，下一个最大值直接接替，所以这组完整序列只需线性数量的结构操作。',
+  random:'随机顺序通常让 BST 不再是一条长链，搜索路径变短，而它无需额外维护平衡。Splay 仍会伸展，但下一次目标未必因此靠近根；其他树也要承担旋转、变色或分裂成本。这解释了排名可能改变，小规模动画本身不能证明哪种树一定最快。'
  };
  function renderInsight(state){
   updateStage('#labStage8',state);

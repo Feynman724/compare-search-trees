@@ -3,13 +3,13 @@
 :root{--bg:#f5f5f7;--surface:#fff;--text:#1d1d1f;--text-2:#6e6e73;--hairline:rgba(0,0,0,.07);--accent:#0071e3;--r-panel:22px;--r-pill:999px;--ease-spring:cubic-bezier(.32,.72,0,1);--ease-out-quart:cubic-bezier(.25,1,.5,1)}
 body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;font-variant-numeric:tabular-nums;font-optical-sizing:auto;color:var(--text)}
 #deck{background:var(--bg)}.card{background:var(--surface);border:0;border-radius:var(--r-panel)}
-#slide2 .five,#slide10 .three{background:var(--surface);border-radius:var(--r-panel);gap:0;padding:22px 0}
-#slide2 .card,#slide10 .card{border-radius:0;border-right:1px solid var(--hairline)}
-#slide2 .card:last-child,#slide10 .card:last-child{border:0}
-#slide10 h3{font-size:23px}button,select{min-height:44px;border-radius:var(--r-pill);transition:transform .18s var(--ease-out-quart),background .18s}
-button:active{transform:scale(.97)}.tree{height:290px}.chart{height:285px}.status{height:45px;font-size:20px}.metric{gap:15px;font-size:18px}.metric b{font-size:25px}.sub{margin-bottom:22px}.tree .node{transition:transform .45s var(--ease-spring)}.tree line{transition:all .45s var(--ease-spring)}#slide7 .card p{margin:12px 0}#slide7 .big{font-size:60px}#slide8>.note{font-size:16px;margin-top:16px}.controls{margin-top:12px}nav{background:rgba(245,245,247,.85);backdrop-filter:blur(20px) saturate(180%);border-radius:var(--r-pill);padding:5px 10px;opacity:.7}nav:hover{opacity:1}
+#slide2 .five{background:var(--surface);border-radius:var(--r-panel);gap:0;padding:22px 0}
+#slide2 .card{border-radius:0;border-right:1px solid var(--hairline)}
+#slide2 .card:last-child{border:0}
+button,select{min-height:44px;border-radius:var(--r-pill);transition:transform .18s var(--ease-out-quart),background .18s}
+button:active{transform:scale(.97)}.tree{height:290px}.chart{height:285px}.status{height:45px;font-size:20px}.metric{gap:15px;font-size:18px}.metric b{font-size:25px}.sub{margin-bottom:22px}.tree .node{transition:transform .45s var(--ease-spring)}.tree line{transition:all .45s var(--ease-spring)}#slide4 .card p{margin:12px 0}#slide4 .big{font-size:60px}#slide9>.note{font-size:16px;margin-top:16px}.controls{margin-top:12px}nav{background:rgba(245,245,247,.85);backdrop-filter:blur(20px) saturate(180%);border-radius:var(--r-pill);padding:5px 10px;opacity:.7}nav:hover{opacity:1}
 @media(prefers-reduced-transparency:reduce){nav{background:var(--surface);backdrop-filter:none}}@media(prefers-contrast:more){nav{background:white;border:1px solid #555}.muted,small,.note{color:#333}}
-#slide7 .card{padding:18px 25px}#slide7 .card h3{margin:0 0 10px}#slide7 .card p{font-size:21px;line-height:1.45}#slide7 .card .note{font-size:17px}#cost7 svg{height:65px;width:100%}#slide7 .card .big{font-size:56px}
+#slide4 .card{padding:18px 25px}#slide4 .card h3{margin:0 0 10px}#slide4 .card p{font-size:21px;line-height:1.45}#slide4 .card .note{font-size:17px}#cost7 svg{height:65px;width:100%}#slide4 .card .big{font-size:56px}
 
 /* Keep presentation corners free of labels and controls. */
 nav{right:auto;left:50%;transform:translateX(-50%);bottom:12px}
