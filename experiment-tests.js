@@ -1,5 +1,10 @@
 const assert=require('node:assert/strict');
 const {DEMO_SCENARIOS,BSTModel,AVLModel,SplayModel,RBModel,BPlusModel,makeExperiment}=require('./experiment-engine');
+const {names,sizes,datasets}=require('./data');
+assert.equal(names.length,5);assert.equal(sizes.length,7);assert.equal(datasets.length,3);
+for(const scenario of datasets)for(const row of scenario){assert.equal(row.length,sizes.length);assert(row.every(value=>Number.isFinite(value)&&value>0));}
+assert.equal(Math.round(datasets[0][0][6]/datasets[0][2][6]),3233);
+assert.equal(Math.round(datasets[1][0][6]/datasets[1][2][6]),5633);
 function inspectBinary(root,kind){
  let values=[],blackHeights=[];
  function walk(n,lo=-Infinity,hi=Infinity,parentRed=false,black=0){
